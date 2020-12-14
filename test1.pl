@@ -46,11 +46,6 @@ ebeveyn(mustafa,zeynep).
 ebeveyn(nevin,ahmet).
 ebeveyn(nevin,zeynep).
 
-ebeveyn(hatice,arif).
-ebeveyn(hatice,numan).
-ebeveyn(refik,arif).
-ebeveyn(refik,numan).
-
 ebeveyn(ismail,aysegul).
 ebeveyn(gonul,aysegul).
 
