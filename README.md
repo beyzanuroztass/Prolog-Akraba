@@ -59,17 +59,21 @@ Ve “akrabalar.pl” adlı dosyamızının içeriğinden örnek gösterelim(Bu 
 üzerinden yazıyoruz.);
 
 anne(X,Y):- kadin(X),ebeveyn(X,Y).
+
 (X,Y’nin annesi olabilmesi için X’in cinsiyetinin kadın olması (çünkü annedir) ve X,Y’nin
 ebeveyni olması gerekmektedir. Ebeveyn ya anne ya da baba olacaktır. Burada da kadın
 gerçeğini seçerek anne yaptık.)
 
 baba(X,Y):- erkek(X),ebeveyn(X,Y).
+
 (X,Y’nin babası olabilmesi için X’in cinsiyetinin erkek olması (çünkü babadır) ve X,Y’nin
 ebeveyni olması gerekmektedir. Ebeveyn ya anne ya da baba olacaktır. Burada da erkek
 gerçeğini seçerek baba yaptık.)
 
 ogul(X,Y):- erkek(X),anne(Y,X).
+
 ogul(X,Y):- erkek(X),baba(Y,X).
+
 (X,Y’nin oğlu olabilmesi için X’in cinsiyetinin erkek olması (çünkü oğul) gerekmektedir ve
 Y, X’nin hem annesi hem de babası olmak üzere iki olasılığı vardır. (Bu yüzden iki satırda
 tanımladık. Çünkü projede “veya” kullanımına yer verilmemiştir.) İlk olasılık olarak
@@ -80,9 +84,13 @@ belirtmememizin nedeni anne,baba ilişkilerini önceden tanımlamamız ve onlar�
 cinsiyetin belirtilmesidir.)
 
 kizkardes(X,Y):- kadin(X),anne(Z,X),kiz(Y,Z),not(X==Y).
+
 kizkardes(X,Y):- kadin(X),anne(Z,X),ogul(Y,Z),not(X==Y).
+
 kizkardes(X,Y):- kadin(X),baba(Z,X),kiz(Y,Z),not(X==Y).
+
 kizkardes(X,Y):- kadin(X),baba(Z,X),ogul(Y,Z),not(X==Y).
+
 (kızkardeş olayı aynı anne veya babanın çocukları olması gerekir ikiside ve çocukları kız
 veya oğul üzerinden gidilebilir. X,Y’nin kızkardeşi olabilmesi için X’in cinsiyetinin kadın
 olması gerekmektedir ve kızkardeşe ulaşmanın anne ve baba üzerinden gitmek üzere 2
