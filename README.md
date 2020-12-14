@@ -1,1 +1,1 @@
-# Prolog-Akraba-li-kileri
+# Prolog Akraba İlişkileri
